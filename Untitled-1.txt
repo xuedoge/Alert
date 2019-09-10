@@ -1,0 +1,39 @@
+问题：实时数据的异常检测  
+
+数据在哪：influxdb，10s 聚合一次 
+
+\\lcmis002\tmp 
+influxdb-1.7.2_windows_amd64.zip 
+你copy到你本机解压
+
+.\influx.exe -host 10.16.78.70 -port 8786 -username root -password root -precision rfc3339 
+连接上开发环境的influxdb 
+至于如何用influxdb，你可能需要看一下介绍和相关文档
+
+基础概念：tag有索引。
+    show tag keys
+    name: apis
+    tagKey
+    ------
+    ApiId
+    ToServer
+
+show databases
+use api_log_database
+show measurements
+select * from apis limit 10
+
+查询某api的调用情况
+select * from apis where ToServer = '10.16.75.25:8186' limit 10
+
+select Average from apis where ToServer = '10.16.75.25:8186' limit 10
+select Average , CallCount from apis where ToServer = '10.16.75.25:8186' limit 10
+select * from apis where time > '2019-09-04T00:00:00Z' limit 100
+
+select * from apis where time > now()-1h and ToServer = '10.16.75.25:8186' limit 10
+
+九十分钟前，api调用数据：553个
+select  Average , CallCount from apis where time > now()-90m and ToServer = '10.16.75.25:8186' limit 600
+
+不能用IP+端口查询API
+select  Average , CallCount from apis where time > now()-10m and ApiId = '5bd26bd8-cbd6-4b85-bcaf-45cb3a32f932' limit 10
