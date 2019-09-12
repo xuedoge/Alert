@@ -1,6 +1,6 @@
 # API调用数据实时异常检测算法
 
->  可以参考的文章：[实时异常检测最终汇报 ](https://confluence.newegg.org/pages/viewpage.action?pageId=55026518)
+>  之前有一篇展示效果的文章失效了，可以下载运行一下试试看。其实是很简单的小项目。
 
 - KNN.py是图形化展示算法可行性的程序。
 - alert.py包含一个每次调用能返回异常值分数的函数**api_alert**，并且每十秒调用他一次。
