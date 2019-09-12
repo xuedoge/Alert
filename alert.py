@@ -7,7 +7,7 @@ import pandas as pd
 # 查询数据
 #timelimit = 'time > \'2019-09-08T00:00:00Z\' and time < \'2019-09-09T00:00:00Z\''
 apiid='d037a3ee-224a-42e8-93a0-207f99d79f69'
-influxdb_ip = '10.16.78.70'
+influxdb_ip = ''
 influxdb_port = 8786
 influxdb_user = 'root'
 influxdb_pwd = 'root'

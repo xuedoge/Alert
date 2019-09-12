@@ -5,7 +5,7 @@ import pandas as pd
 
 
 # 访问influxdb
-client = InfluxDBClient('10.16.78.70', 8786, 'root',
+client = InfluxDBClient('', 8786, 'root',
                         'root', 'api_log_database')
 # 查询数据
 #timelimit = 'time > \'2019-08-26T00:00:00Z\' and time < \'2019-08-26T01:00:00Z\''

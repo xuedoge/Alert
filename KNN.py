@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # 访问influxdb
-client = InfluxDBClient('10.16.78.70', 8786, 'root',
+client = InfluxDBClient('', 8786, 'root',
                         'root', 'api_log_database')
 # 查询数据
 #timelimit = 'time > \'2019-09-08T00:00:00Z\' and time < \'2019-09-09T00:00:00Z\''

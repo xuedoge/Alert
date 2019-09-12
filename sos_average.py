@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 #访问influxdb
-client = InfluxDBClient('10.16.78.70', 8786, 'root',
+client = InfluxDBClient('', 8786, 'root',
                         'root', 'api_log_database')
 #查询数据
 result = client.query(
