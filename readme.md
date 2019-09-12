@@ -54,3 +54,35 @@ elif(test_scores > 0.05):
     #这个值根据训练用的时间相关，一天的数据0.05比较合适。
 return test_scores
 </pre>
+
+## 数据处理
+**这里提一句，目前想要将机器学习应用到平时的产品里，最关键的任务是数据处理。**
+*  基本所有的机器学习算法都需要数据归一化，以消除数据量不同导致的误差，个别算法不可以归一化。
+*  数据一定要量化，某些很难量化的数据可以学习一下“独热编码”。
+
+### 数据归一化
+> KNN算法使用的是欧氏距离进行分类，而欧式距离不进行数据归一化，在数据量差距大时算法的准确性就会受到影响。
+如两个维度的数据分别是（0-1）（0-1000000），第二个维度的数据就会对运算结果有更大的影响。
+
+<pre>
+x['CallCount'] = (x['CallCount']-x['CallCount'].min()) / \
+    (x['CallCount'].max()-x['CallCount'].min())
+x['Average'] = (x['Average']-x['Average'].min()) / \
+    (x['Average'].max()-x['Average'].min())
+x['ErrorRate'] = x['ErrorRate']/100
+#这里将三个维度的数据映射到了[0-1]
+</pre>
+
+### 数据格式
+大部分的数据都需要转化成dataframe的格式，才能进行机器学习的算法运算。原因详见panda的文档。
+
+## 数据可视化
+具体使用方式见pyplot文档
+<pre>
+plt.title(title)
+plt.xlabel('Average')
+plt.ylabel('CallCount')
+plt.scatter('Average', 'CallCount', s=1, data=df)
+plt.scatter('Average', 'CallCount', s=2, c='red', data=alert)
+</pre>
+
